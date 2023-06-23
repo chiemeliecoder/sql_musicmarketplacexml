@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MusicMarketplace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="musicdata.xsd">
+    <Users>
+        <User>
+            <UserId>1</UserId>
+            <Username>john123</Username>
+            <Email>john@example.com</Email>
+            <Password>password</Password>
+        </User>
+    </Users>
+    <Artists>
+        <Artist>
+            <ArtistId>1</ArtistId>
+            <ArtistName>John Doe</ArtistName>
+        </Artist>
+    </Artists>
+    <Albums>
+        <Album>
+            <AlbumId>1</AlbumId>
+            <AlbumTitle>Album 1</AlbumTitle>
+            <ReleaseDate>2022-01-01</ReleaseDate>
+        </Album>
+    </Albums>
+    <Playlists>
+        <Playlist>
+            <PlaylistId>1</PlaylistId>
+            <PlaylistName>My Playlist</PlaylistName>
+        </Playlist>
+    </Playlists>
+    <Wishlist>
+        <WishlistId>1</WishlistId>
+    </Wishlist>
+    <UserProfiles>
+        <UserProfile>
+            <Id>1</Id>
+            <Bio>User bio</Bio>
+            <ProfileImage>profile.jpg</ProfileImage>
+            <Location>Location</Location>
+        </UserProfile>
+    </UserProfiles>
+</MusicMarketplace>

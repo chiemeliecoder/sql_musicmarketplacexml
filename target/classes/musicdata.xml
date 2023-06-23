@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MusicData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="musicdata.xsd">
+    <Users>
+        <User>
+            <UserId>1</UserId>
+            <Username>john123</Username>
+            <Email>john@example.com</Email>
+            <Password>password</Password>
+            <Playlists>
+                <Playlist>
+                    <PlaylistId>1</PlaylistId>
+                    <PlaylistName>My Playlist</PlaylistName>
+                    <Tracks>
+                        <Track>
+                            <TrackId>1</TrackId>
+                            <TrackTitle>Track 1</TrackTitle>
+                            <Duration>PT3M45S</Duration>
+                        </Track>
+                        <Track>
+                            <TrackId>2</TrackId>
+                            <TrackTitle>Track 2</TrackTitle>
+                            <Duration>PT4M12S</Duration>
+                        </Track>
+                    </Tracks>
+                </Playlist>
+            </Playlists>
+            <Purchases>
+                <Purchase>
+                    <PurchaseId>1</PurchaseId>
+                    <Track>
+                        <TrackId>1</TrackId>
+                        <TrackTitle>Track 1</TrackTitle>
+                        <Duration>PT3M45S</Duration>
+                    </Track>
+                    <PurchaseDate>2023-06-08</PurchaseDate>
+                    <Price>9.99</Price>
+                </Purchase>
+            </Purchases>
+            <Reviews>
+                <Review>
+                    <ReviewId>1</ReviewId>
+                    <Album>
+                        <AlbumId>1</AlbumId>
+                        <AlbumTitle>Album 1</AlbumTitle>
+                        <ReleaseDate>2022-01-01</ReleaseDate>
+                    </Album>
+                    <Rating>5</Rating>
+                    <Comment>This album is amazing!</Comment>
+                </Review>
+            </Reviews>
+            <Wishlist>
+                <WishlistId>1</WishlistId>
+                <Album>
+                    <AlbumId>2</AlbumId>
+                    <AlbumTitle>Album 2</AlbumTitle>
+                    <ReleaseDate>2023-05-01</ReleaseDate>
+                </Album>
+            </Wishlist>
+        </User>
+    </Users>
+    <Artists>
+        <Artist>
+            <ArtistId>1</ArtistId>
+            <ArtistName>John Doe</ArtistName>
+            <Biography>...</Biography>
+            <Albums>
+                <Album>
+                    <AlbumId>1</AlbumId>
+                    <AlbumTitle>Album 1</AlbumTitle>
+                    <ReleaseDate>2022-01-01</ReleaseDate>
+                    <Tracks>
+                        <Track>
+                            <TrackId>1</TrackId>
+                            <TrackTitle>Track 1</TrackTitle>
+                            <Duration>PT3M45S</Duration>
+                        </Track>
+                        <Track>
+                            <TrackId>2</TrackId>
+                            <TrackTitle>Track 2</TrackTitle>
+                            <Duration>PT4M12S</Duration>
+                        </Track>
+                    </Tracks>
+                </Album>
+            </Albums>
+            <Genres>
+                <Genre>
+                    <GenreId>1</GenreId>
+                    <GenreName>Rock</GenreName>
+                </Genre>
+                <Genre>
+                    <GenreId>2</GenreId>
+                    <GenreName>Pop</GenreName>
+                </Genre>
+            </Genres>
+            <Achievements>
+                <ArtistAchievement>
+                    <AchievementId>1</AchievementId>
+                    <AchievementTitle>Achievement 1</AchievementTitle>
+                    <AchievementDate>2023-01-01</AchievementDate>
+                </ArtistAchievement>
+            </Achievements>
+        </Artist>
+    </Artists>
+    <Genres>
+        <Genre>
+            <GenreId>1</GenreId>
+            <GenreName>Rock</GenreName>
+        </Genre>
+        <Genre>
+            <GenreId>2</GenreId>
+            <GenreName>Pop</GenreName>
+        </Genre>
+    </Genres>
+</MusicData>
+
+    </Tracks>
+</MusicMarketplace>

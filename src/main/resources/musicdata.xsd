@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="MusicMarketplace">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Users" type="UsersType"/>
+                <xs:element name="Artists" type="ArtistsType"/>
+                <xs:element name="Albums" type="AlbumsType"/>
+                <xs:element name="Playlists" type="PlaylistsType"/>
+                <xs:element name="Wishlist" type="WishlistType"/>
+                <xs:element name="UserProfiles" type="UserProfilesType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="UsersType">
+        <xs:sequence>
+            <xs:element name="User" type="UserType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UserType">
+        <xs:sequence>
+            <xs:element name="UserId" type="xs:int"/>
+            <xs:element name="Username" type="xs:string"/>
+            <xs:element name="Email" type="xs:string"/>
+            <xs:element name="Password" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ArtistsType">
+        <xs:sequence>
+            <xs:element name="Artist" type="ArtistType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ArtistType">
+        <xs:sequence>
+            <xs:element name="ArtistId" type="xs:int"/>
+            <xs:element name="ArtistName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AlbumsType">
+        <xs:sequence>
+            <xs:element name="Album" type="AlbumType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AlbumType">
+        <xs:sequence>
+            <xs:element name="AlbumId" type="xs:int"/>
+            <xs:element name="AlbumTitle" type="xs:string"/>
+            <xs:element name="ReleaseDate" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PlaylistsType">
+        <xs:sequence>
+            <xs:element name="Playlist" type="PlaylistType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PlaylistType">
+        <xs:sequence>
+            <xs:element name="PlaylistId" type="xs:int"/>
+            <xs:element name="PlaylistName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="WishlistType">
+        <xs:sequence>
+            <xs:element name="WishlistId" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UserProfilesType">
+        <xs:sequence>
+            <xs:element name="UserProfile" type="UserProfileType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UserProfileType">
+        <xs:sequence>
+            <xs:element name="Id" type="xs:int"/>
+            <xs:element name="Bio" type="xs:string"/>
+            <xs:element name="ProfileImage" type="xs:string"/>
+            <xs:element name="Location" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
