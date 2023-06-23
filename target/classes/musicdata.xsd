@@ -1,250 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="MusicData">
+    <xs:element name="MusicMarketplace">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Users">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="User" maxOccurs="unbounded">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="UserId" type="xs:int"/>
-                                        <xs:element name="Username" type="xs:string"/>
-                                        <xs:element name="Email" type="xs:string"/>
-                                        <xs:element name="Password" type="xs:string"/>
-                                        <xs:element name="Playlists">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="Playlist" maxOccurs="unbounded">
-                                                        <xs:complexType>
-                                                            <xs:sequence>
-                                                                <xs:element name="PlaylistId" type="xs:int"/>
-                                                                <xs:element name="PlaylistName" type="xs:string"/>
-                                                                <xs:element name="Tracks">
-                                                                    <xs:complexType>
-                                                                        <xs:sequence>
-                                                                            <xs:element ref="Track" minOccurs="0" maxOccurs="unbounded"/>
-                                                                        </xs:sequence>
-                                                                    </xs:complexType>
-                                                                </xs:element>
-                                                            </xs:sequence>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element name="Purchases">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="Purchase" maxOccurs="unbounded">
-                                                        <xs:complexType>
-                                                            <xs:sequence>
-                                                                <xs:element name="PurchaseId" type="xs:int"/>
-                                                                <xs:element ref="Track"/>
-                                                                <xs:element name="PurchaseDate" type="xs:date"/>
-                                                                <xs:element name="Price" type="xs:decimal"/>
-                                                            </xs:sequence>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element name="Reviews">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="Review" maxOccurs="unbounded">
-                                                        <xs:complexType>
-                                                            <xs:sequence>
-                                                                <xs:element name="ReviewId" type="xs:int"/>
-                                                                <xs:element ref="Album"/>
-                                                                <xs:element name="Rating" type="xs:int"/>
-                                                                <xs:element name="Comment" type="xs:string"/>
-                                                            </xs:sequence>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element name="Wishlist" minOccurs="0">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="WishlistId" type="xs:int"/>
-                                                    <xs:element ref="Album"/>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Artists">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="Artist" maxOccurs="unbounded">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="ArtistId" type="xs:int"/>
-                                        <xs:element name="ArtistName" type="xs:string"/>
-                                        <xs:element name="Biography" type="xs:string"/>
-                                        <xs:element name="Albums">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="Album" maxOccurs="unbounded">
-                                                        <xs:complexType>
-                                                            <xs:sequence>
-                                                                <xs:element name="AlbumId" type="xs:int"/>
-                                                                <xs:element name="AlbumTitle" type="xs:string"/>
-                                                                <xs:element name="ReleaseDate" type="xs:date"/>
-                                                                <xs:element name="Tracks">
-                                                                    <xs:complexType>
-                                                                        <xs:sequence>
-                                                                            <xs:element ref="Track" minOccurs="0" maxOccurs="unbounded"/>
-                                                                        </xs:sequence>
-                                                                    </xs:complexType>
-                                                                </xs:element>
-                                                            </xs:sequence>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element name="Genres">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element ref="Genre" minOccurs="0" maxOccurs="unbounded"/>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element name="Achievements">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="ArtistAchievement" maxOccurs="unbounded">
-                                                        <xs:complexType>
-                                                            <xs:sequence>
-                                                                <xs:element name="AchievementId" type="xs:int"/>
-                                                                <xs:element name="AchievementTitle" type="xs:string"/>
-                                                                <xs:element name="AchievementDate" type="xs:date"/>
-                                                            </xs:sequence>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Genres">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="Genre" maxOccurs="unbounded">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="GenreId" type="xs:int"/>
-                                        <xs:element name="GenreName" type="xs:string"/>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Track">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="TrackId" type="xs:int"/>
-                            <xs:element name="TrackTitle" type="xs:string"/>
-                            <xs:element name="Duration" type="xs:duration"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Album">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="AlbumId" type="xs:int"/>
-                            <xs:element name="AlbumTitle" type="xs:string"/>
-                            <xs:element name="ReleaseDate" type="xs:date"/>
-                            <xs:element ref="Artist"/>
-                            <xs:element name="Tracks">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element ref="Track" minOccurs="0" maxOccurs="unbounded"/>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Playlist">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="PlaylistId" type="xs:int"/>
-                            <xs:element name="PlaylistName" type="xs:string"/>
-                            <xs:element ref="User"/>
-                            <xs:element name="Tracks">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element ref="Track" minOccurs="0" maxOccurs="unbounded"/>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Purchase">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="PurchaseId" type="xs:int"/>
-                            <xs:element ref="User"/>
-                            <xs:element ref="Track"/>
-                            <xs:element name="PurchaseDate" type="xs:date"/>
-                            <xs:element name="Price" type="xs:decimal"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Review">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="ReviewId" type="xs:int"/>
-                            <xs:element ref="User"/>
-                            <xs:element ref="Album"/>
-                            <xs:element name="Rating" type="xs:int"/>
-                            <xs:element name="Comment" type="xs:string"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Wishlist">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="WishlistId" type="xs:int"/>
-                            <xs:element ref="User"/>
-                            <xs:element ref="Album"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Genre">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="GenreId" type="xs:int"/>
-                            <xs:element name="GenreName" type="xs:string"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="ArtistAchievement">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="AchievementId" type="xs:int"/>
-                            <xs:element ref="Artist"/>
-                            <xs:element name="AchievementTitle" type="xs:string"/>
-                            <xs:element name="AchievementDate" type="xs:date"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
+                <xs:element name="Users" type="UsersType"/>
+                <xs:element name="Artists" type="ArtistsType"/>
+                <xs:element name="Albums" type="AlbumsType"/>
+                <xs:element name="Playlists" type="PlaylistsType"/>
+                <xs:element name="Wishlist" type="WishlistType"/>
+                <xs:element name="UserProfiles" type="UserProfilesType"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <xs:complexType name="UsersType">
+        <xs:sequence>
+            <xs:element name="User" type="UserType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UserType">
+        <xs:sequence>
+            <xs:element name="UserId" type="xs:int"/>
+            <xs:element name="Username" type="xs:string"/>
+            <xs:element name="Email" type="xs:string"/>
+            <xs:element name="Password" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ArtistsType">
+        <xs:sequence>
+            <xs:element name="Artist" type="ArtistType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ArtistType">
+        <xs:sequence>
+            <xs:element name="ArtistId" type="xs:int"/>
+            <xs:element name="ArtistName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AlbumsType">
+        <xs:sequence>
+            <xs:element name="Album" type="AlbumType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AlbumType">
+        <xs:sequence>
+            <xs:element name="AlbumId" type="xs:int"/>
+            <xs:element name="AlbumTitle" type="xs:string"/>
+            <xs:element name="ReleaseDate" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PlaylistsType">
+        <xs:sequence>
+            <xs:element name="Playlist" type="PlaylistType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PlaylistType">
+        <xs:sequence>
+            <xs:element name="PlaylistId" type="xs:int"/>
+            <xs:element name="PlaylistName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="WishlistType">
+        <xs:sequence>
+            <xs:element name="WishlistId" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UserProfilesType">
+        <xs:sequence>
+            <xs:element name="UserProfile" type="UserProfileType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UserProfileType">
+        <xs:sequence>
+            <xs:element name="Id" type="xs:int"/>
+            <xs:element name="Bio" type="xs:string"/>
+            <xs:element name="ProfileImage" type="xs:string"/>
+            <xs:element name="Location" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

@@ -181,6 +181,10 @@ public class Main {
 
 
 
+
+
+
+
     // Call the create method
 //    firstUser = userService.create(firstUser);
 //    System.out.println("Created user: " + firstUser);
@@ -206,106 +210,48 @@ public class Main {
 
 
     //call the list method
-
-    List<Artists> allArtists = artistService.getAllArtists();
-    System.out.println("All artists: " + allArtists);
-
-    List<Album> allAlbums = albumService.getAll();
-    System.out.println("All albums: " + allAlbums);
-
-    List<Playlist> allPlaylist = playlistService.getAll();
-    System.out.println("All Playlist: " + allPlaylist);
-
-    List<Track> allTrack = trackService.getAll();
-    System.out.println("All Track: " + allTrack);
-
-    List<Wishlist> allWishlist = wishlistService.getAll();
-    System.out.println("All Wishlist: " + allWishlist);
-
-    List<UserProfile> allUserProfile = userProfileService.getAll();
-    System.out.println("All UserProfile: " + allUserProfile);
-
-    List<User> allUser = userService.getAllUsers();
-    System.out.println("All User: " + allUser);
-
-    int userCount = musicService.countUsers();
-    System.out.println("Number of users: " + userCount);
-
-    int artistCount = musicService.countArtists();
-    System.out.println("Total number of artists: " + artistCount);
-
-    int albumCount = musicService.countAlbums();
-    System.out.println("Total number of albums: " + albumCount);
-
-    int playlistCount = musicService.countPlaylists();
-    System.out.println("Total number of playlists: " + playlistCount);
-
-    int trackCount = musicService.countTracks();
-    System.out.println("Total number of tracks: " + trackCount);
-
-    int wishlistCount = musicService.countWishlists();
-    System.out.println("Total number of wishlists: " + wishlistCount);
-
-
-
-
-//    Purchase firstPurchase = new Purchase();
-//    firstPurchase.setPurchaseDate(d);
 //
-//    Review firstReview = new Review();
-//    firstReview.setComments("Wonderful comeback");
+//    List<Artists> allArtists = artistService.getAllArtists();
+//    System.out.println("All artists: " + allArtists);
 //
-//    int maxId = userDAO.getMaxUserId();
+//    List<Album> allAlbums = albumService.getAll();
+//    System.out.println("All albums: " + allAlbums);
 //
-//    // Create a new user
-//    User newUser = new User();
-//    newUser.setId(maxId + 1);
-//    newUser.setName("hannah Doe");
-//    newUser.setEmail("hannah@example.com");
-//    newUser.setPassword("password009");
+//    List<Playlist> allPlaylist = playlistService.getAll();
+//    System.out.println("All Playlist: " + allPlaylist);
 //
+//    List<Track> allTrack = trackService.getAll();
+//    System.out.println("All Track: " + allTrack);
 //
+//    List<Wishlist> allWishlist = wishlistService.getAll();
+//    System.out.println("All Wishlist: " + allWishlist);
 //
-//    // Call the retrieveUserProfileById method
-//    int userProfileId = 2;
-//    UserProfile userProfiles = userDAO.retrieveUserProfileById(userProfileId);
+//    List<UserProfile> allUserProfile = userProfileService.getAll();
+//    System.out.println("All UserProfile: " + allUserProfile);
 //
-//    userProfile.setId(2);
-//    userProfile.setBio("I like cute anime music");
-//    userProfile.setProfileimage("https://cdn.shopify.com/s/files/1/0416/8083/0620/files/ecomm-CHGAL-Core2021_367x353px_07-CN_1000x.png?v=1614324462");
-//    userProfile.setLocation("London");
-//    System.out.println("Retrieved user profile: " + userProfiles);
+//    List<User> allUser = userService.getAllUsers();
+//    System.out.println("All User: " + allUser);
 //
-//    newUser.setUserProfile(userProfiles);
+//    int userCount = musicService.countUsers();
+//    System.out.println("Number of users: " + userCount);
 //
+//    int artistCount = musicService.countArtists();
+//    System.out.println("Total number of artists: " + artistCount);
 //
+//    int albumCount = musicService.countAlbums();
+//    System.out.println("Total number of albums: " + albumCount);
 //
+//    int playlistCount = musicService.countPlaylists();
+//    System.out.println("Total number of playlists: " + playlistCount);
 //
+//    int trackCount = musicService.countTracks();
+//    System.out.println("Total number of tracks: " + trackCount);
 //
-//
-//
-//    // Get all users
-//    List<User> allUsers = userService.getAllUsers();
-//    for (User user : allUsers) {
-//      if (user.getUserProfile() == null) {
-//        UserProfile userProf = new UserProfile();
-//        userProfile.setId(0); // Set the appropriate ID
-//        userProfile.setBio(""); // Set the appropriate bio
-//        userProfile.setProfileimage(""); // Set the appropriate profile image
-//        userProfile.setLocation(""); // Set the appropriate location
-//        user.setUserProfile(userProf);
-//      }
-//    }
-//    System.out.println("All users: " + allUsers);
-//
-//    int maxArtId = artistService.getMaxArtistId();
-//    Artists newArtist = new Artists();
-//    newArtist.setId(maxArtId + 1);
-//    newArtist.setArtistName("E ve");
-//
-//    Album album = new Album();
-//    album.setId(2);
-//    newArtist.setAlbum(album.getId());
+//    int wishlistCount = musicService.countWishlists();
+//    System.out.println("Total number of wishlists: " + wishlistCount);
+
+    String xmlFilePath = "src/main/resources/musicdata.xml";
+    musicParser.parseMusicData(xmlFilePath);
 
     logger.info("end of information");
 
