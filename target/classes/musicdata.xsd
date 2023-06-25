@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="musicdata.xsd">
     <xs:element name="MusicMarketplace">
         <xs:complexType>
             <xs:sequence>
@@ -7,7 +9,7 @@
                 <xs:element name="Artists" type="ArtistsType"/>
                 <xs:element name="Albums" type="AlbumsType"/>
                 <xs:element name="Playlists" type="PlaylistsType"/>
-                <xs:element name="Wishlist" type="WishlistType"/>
+                <xs:element name="Wishlists" type="WishlistsType"/>
                 <xs:element name="UserProfiles" type="UserProfilesType"/>
             </xs:sequence>
         </xs:complexType>
@@ -25,12 +27,16 @@
             <xs:element name="Username" type="xs:string"/>
             <xs:element name="Email" type="xs:string"/>
             <xs:element name="Password" type="xs:string"/>
+            <xs:element name="UserProfile" type="UserProfileType"/>
+            <xs:element name="Playlists" type="PlaylistsType"/>
+            <xs:element name="Wishlists" type="WishlistsType"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="ArtistsType">
         <xs:sequence>
             <xs:element name="Artist" type="ArtistType" minOccurs="0" maxOccurs="unbounded"/>
+
         </xs:sequence>
     </xs:complexType>
 
@@ -38,6 +44,7 @@
         <xs:sequence>
             <xs:element name="ArtistId" type="xs:int"/>
             <xs:element name="ArtistName" type="xs:string"/>
+            <xs:element name="Album" type="AlbumType"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -71,8 +78,18 @@
     <xs:complexType name="WishlistType">
         <xs:sequence>
             <xs:element name="WishlistId" type="xs:int"/>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="Albums" type="AlbumsType"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:complexType name="WishlistsType">
+        <xs:sequence>
+            <xs:element name="Wishlist" type="WishlistType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="Wishlists" type="WishlistsType"/>
 
     <xs:complexType name="UserProfilesType">
         <xs:sequence>
