@@ -23,6 +23,7 @@ public class musicParser implements IParser{
     UserProfile userProfile;
     List<Playlist> playlistList = new ArrayList<>();
     List<Wishlist> wishlistList = new ArrayList<>();
+    String currentElement = null;
 
     try {
       XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
@@ -35,16 +36,18 @@ public class musicParser implements IParser{
         switch (event) {
           case XMLStreamConstants.START_ELEMENT:
             String elementName = xmlStreamReader.getName().getLocalPart();
+            currentElement = elementName;
 
             if (elementName.equals("User")) {
-              String userIdString = xmlStreamReader.getElementText();
-              int userId = userIdString != null ? Integer.parseInt(userIdString) : 0;
-
-              String username = xmlStreamReader.getElementText();
-              String email = xmlStreamReader.getElementText();
-              String password = xmlStreamReader.getElementText();
-
-              user = new User(userId, username, email, password);
+              user = parseUser(xmlStreamReader);
+//              String userIdString = xmlStreamReader.getElementText();
+//              int userId = userIdString != null ? Integer.parseInt(userIdString) : 0;
+//
+//              String username = xmlStreamReader.getElementText();
+//              String email = xmlStreamReader.getElementText();
+//              String password = xmlStreamReader.getElementText();
+//
+//              user = new User(userId, username, email, password);
             } else if (elementName.equals("UserProfile")) {
               userProfile = parseUserProfile(xmlStreamReader);
               user.setUserProfile(userProfile);
@@ -77,10 +80,12 @@ public class musicParser implements IParser{
             String data = xmlStreamReader.getText();
             // Handle character data event based on the current element being processed
             if (data != null && !data.trim().isEmpty()) {
-              if (xmlStreamReader.getLocalName().equals("Username")) {
-                // Process the username data
-              } else if (xmlStreamReader.getLocalName().equals("Email")) {
-                // Process the email data
+              if (currentElement != null) {
+                if (currentElement.equals("Username")) {
+                  // Process the username data
+                } else if (currentElement.equals("Email")) {
+                  // Process the email data
+                }
               }
             }
             break;
@@ -194,10 +199,12 @@ public class musicParser implements IParser{
 
             String releaseDateString = xmlStreamReader.getAttributeValue(null, "ReleaseDate");
             Date releaseDate = null;
-            try {
-              releaseDate = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(releaseDateString);
-            } catch (java.text.ParseException e) {
-              e.printStackTrace();
+            if (releaseDateString != null) {
+              try {
+                releaseDate = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(releaseDateString);
+              } catch (java.text.ParseException e) {
+                e.printStackTrace();
+              }
             }
 
             Album album = new Album(albumId, albumTitle, releaseDate);
@@ -215,5 +222,39 @@ public class musicParser implements IParser{
     return null;
   }
 
+  private User parseUser(XMLStreamReader xmlStreamReader) throws XMLStreamException {
+    int userId = 0;
+    String username = null;
+    String email = null;
+    String password = null;
+
+    while (xmlStreamReader.hasNext()) {
+      int event = xmlStreamReader.next();
+
+      switch (event) {
+        case XMLStreamConstants.START_ELEMENT:
+          String elementName = xmlStreamReader.getName().getLocalPart();
+
+          if (elementName.equals("UserId")) {
+            String userIdString = xmlStreamReader.getElementText();
+            userId = userIdString != null ? Integer.parseInt(userIdString) : 0;
+          } else if (elementName.equals("Username")) {
+            username = xmlStreamReader.getElementText();
+          } else if (elementName.equals("Email")) {
+            email = xmlStreamReader.getElementText();
+          } else if (elementName.equals("Password")) {
+            password = xmlStreamReader.getElementText();
+          }
+          break;
+        case XMLStreamConstants.END_ELEMENT:
+          if (xmlStreamReader.getLocalName().equals("User")) {
+            return new User(userId, username, email, password);
+          }
+          break;
+      }
+    }
+
+    return null;
+  }
 
 }

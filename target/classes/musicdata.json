@@ -1,82 +1,80 @@
 {
-  "MusicMarketplace": {
-    "Users": {
-      "User": {
-        "UserId": 1,
-        "Username": "john123",
-        "Email": "john@example.com",
-        "Password": "password",
-        "UserProfile": {
-          "Id": 1,
-          "Bio": "John bio",
-          "ProfileImage": "profile.jpg",
-          "Location": "London"
-        },
-        "Playlists": [
-          {
-            "PlaylistId": 1,
-            "PlaylistName": "My Playlist"
-          }
-        ],
-        "Wishlist": [
-          {
-            "WishlistId": 1,
-            "Name": "john123wish",
-            "Album": {
-              "AlbumId": 1,
-              "AlbumTitle": "1989",
-              "ReleaseDate": "2022-01-01"
-            }
-          }
-        ]
-      }
+  "User": {
+    "UserId": 1,
+    "Username": "john123",
+    "Email": "john@example.com",
+    "Password": "password",
+    "UserProfile": {
+      "Id": 1,
+      "Bio": "John bio",
+      "ProfileImage": "profile.jpg",
+      "Location": "London"
     },
-    "Artists": {
-      "Artist": {
-        "ArtistId": 1,
-        "ArtistName": "Taylor Swift",
-        "Album": [
-          {
-            "AlbumId": 1,
-            "AlbumTitle": "1989",
-            "ReleaseDate": "2022-01-01"
-          }
-        ]
+    "Playlists": [
+      {
+        "PlaylistId": 1,
+        "PlaylistName": "My Playlist"
       }
-    },
-    "Albums": {
-      "Album": {
-        "AlbumId": 2,
-        "AlbumTitle": "The Book",
-        "ReleaseDate": "2021-03-01"
+    ],
+    "Wishlist": [
+      {
+        "WishlistId": 1,
+        "Name": "john123wish",
+        "Album": {
+          "AlbumId": 1,
+          "AlbumTitle": "1989",
+          "ReleaseDate": "2022-01-01"
+        }
       }
-    },
-    "Playlists": {
-      "Playlist": {
-        "PlaylistId": 2,
-        "PlaylistName": "Japan vs Korean"
-      }
-    },
-    "Wishlists": {
-      "Wishlist": {
-        "WishlistId": 2,
-        "Name": "sharonwish",
-        "Album": [
-          {
-            "AlbumId": 2,
-            "AlbumTitle": "The Book",
-            "ReleaseDate": "2021-03-01"
-          }
-        ]
-      }
-    },
-    "UserProfiles": {
-      "UserProfile": {
-        "Id": 2,
-        "Bio": "Sharon bio",
-        "ProfileImage": "profilesharon.jpg",
-        "Location": "Oregon"
-      }
+    ]
+  },
+  "Artists": {
+    "Artist": {
+      "ArtistId": 1,
+      "ArtistName": "Taylor Swift",
+      "Album": [
+        {
+          "AlbumId": 1,
+          "AlbumTitle": "1989",
+          "ReleaseDate": "2022-01-01"
+        }
+      ]
+    }
+  },
+  "Albums": {
+    "Album": {
+      "AlbumId": 2,
+      "AlbumTitle": "The Book",
+      "ReleaseDate": "2021-03-01"
+    }
+  },
+  "Playlists": {
+    "Playlist": {
+      "PlaylistId": 2,
+      "PlaylistName": "Japan vs Korean"
+    }
+  },
+  "Wishlists": {
+    "Wishlist": {
+      "WishlistId": 2,
+      "Name": "sharonwish",
+      "Album": [
+        {
+          "AlbumId": 2,
+          "AlbumTitle": "The Book",
+          "ReleaseDate": "2021-03-01"
+        }
+      ]
+    }
+  },
+  "UserProfiles": {
+    "UserProfile": {
+      "Id": 2,
+      "Bio": "Sharon bio",
+      "ProfileImage": "profilesharon.jpg",
+      "Location": "Oregon"
     }
   }
 }
+
+

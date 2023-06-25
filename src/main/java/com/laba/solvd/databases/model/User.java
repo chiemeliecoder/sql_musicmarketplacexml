@@ -14,7 +14,8 @@ import java.util.List;
 public class User {
 
   @XmlElement
-  private Integer id;
+  @JsonProperty("UserId")
+  private Integer UserId;
 
   @XmlElement
   private String name;
@@ -36,11 +37,13 @@ public class User {
   @XmlElement(name = "Wishlist")
   private List<Wishlist> wishlistList;
 
+
+
   public User() {
   }
 
   public User(Integer id, String name, String email, String password) {
-    this.id = id;
+    this.UserId = id;
     this.name = name;
     this.email = email;
     this.password = password;
@@ -50,7 +53,7 @@ public class User {
       UserProfile userProfile,
       List<Playlist> playlistList,
       List<Wishlist> wishlistList) {
-    this.id = id;
+    this.UserId = id;
     this.name = name;
     this.email = email;
     this.password = password;
@@ -61,11 +64,11 @@ public class User {
 
   @JsonProperty("Id")
   public Integer getId() {
-    return id;
+    return UserId;
   }
 
   public void setId(Integer id) {
-    this.id = id;
+    this.UserId = id;
   }
 
   @JsonProperty("Name")
@@ -126,7 +129,7 @@ public class User {
   @Override
   public String toString() {
     return "User{" +
-        "id=" + id +
+        "id=" + UserId +
         ", name='" + name + '\'' +
         ", email='" + email + '\'' +
         ", password='" + password + '\'' +
