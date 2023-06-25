@@ -1,18 +1,24 @@
 package com.laba.solvd.databases.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 
 public class UserProfile {
 
+  @XmlElement
   private Integer id;
 
+  @XmlElement
   private String bio;
 
+  @XmlElement
+  @JsonProperty("Profileimage")
   private String profileimage;
 
+  @XmlElement
   private String location;
-
-
 
 
   public UserProfile() {
@@ -26,6 +32,7 @@ public class UserProfile {
 
   }
 
+  @XmlAttribute
   public Integer getId() {
     return id;
   }
@@ -34,6 +41,7 @@ public class UserProfile {
     this.id = id;
   }
 
+  @XmlElement
   public String getBio() {
     return bio;
   }
@@ -50,6 +58,7 @@ public class UserProfile {
     this.profileimage = profileimage;
   }
 
+  @XmlElement
   public String getLocation() {
     return location;
   }
@@ -59,23 +68,7 @@ public class UserProfile {
   }
 
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof UserProfile)) {
-      return false;
-    }
-    UserProfile that = (UserProfile) o;
-    return getId() == that.getId() && getBio().equals(that.getBio()) && getProfileimage()
-        .equals(that.getProfileimage()) && getLocation().equals(that.getLocation());
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(getId(), getBio(), getProfileimage(), getLocation());
-  }
 
   @Override
   public String toString() {

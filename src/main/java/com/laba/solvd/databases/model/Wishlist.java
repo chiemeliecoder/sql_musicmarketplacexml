@@ -1,14 +1,28 @@
 package com.laba.solvd.databases.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
+
+@XmlRootElement(name = "Wishlist")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Wishlist {
 
+  @XmlElement
   private int id;
 
+  @XmlElement
   private String name;
 
+  @XmlElementWrapper(name = "AlbumList")
+  @XmlElement(name = "Album")
+  @JsonProperty("albums")
   private List<Album> albumList;
 
 
@@ -46,24 +60,6 @@ public class Wishlist {
     this.albumList = albumList;
   }
 
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof Wishlist)) {
-      return false;
-    }
-    Wishlist wishlist = (Wishlist) o;
-    return getId() == wishlist.getId() && getName().equals(wishlist.getName()) && getAlbumList()
-        .equals(wishlist.getAlbumList());
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(getId(), getName(), getAlbumList());
-  }
 
   @Override
   public String toString() {

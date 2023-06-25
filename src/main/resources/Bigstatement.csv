@@ -1,3 +1,0 @@
-id,username,email,password,id_artist,id,name,userid,id,userid,albumid,id,userid,trackid,date,price,id,userid,albumid,rating,comment,id,title,duration,albumid,id,title,date,artistid,id,name,id_user,id,artistid,genreid,id,name,id,artistid,title,date
-1,JohnDoe,johndoe@example.com,password123,1,1,"My Favorites",1,1,1,1,1,1,1,2023-05-25,9.99,1,1,1,5.0,"Great album!",1,"Shake It Off",00:03:39,1,1,1989,2012-10-22,1,1,"Taylor Swift",1,1,1,1,1,Pop,1,1,"billbord 100",2014-10-29
-2,SharonJoe,sharonjoe@gmail.com,password456,2,2,Japan,2,2,2,2,2,2,2,2023-06-01,11.61,2,2,2,5.0,すごい,2,夜に駆ける,00:04:22,2,2,"THE BOOK",2021-01-06,2,2,Yoasobi,2,2,2,2,2,JPop,2,2,"JPop 100",2021-01-08

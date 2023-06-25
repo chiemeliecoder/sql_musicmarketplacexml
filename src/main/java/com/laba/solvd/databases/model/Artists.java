@@ -2,28 +2,35 @@ package com.laba.solvd.databases.model;
 
 import java.util.List;
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "Artists")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Artists {
 
+  @XmlElement
   private int id;
 
+  @XmlElement
   private String artistName;
 
+  @XmlElementWrapper(name = "Albums")
+  @XmlElement(name = "Album")
   private List<Album> albums;
-  private List<Genre> genres;
-  private List<ArtistAchievement> achievements;
+
 
   public Artists() {
   }
 
   public Artists(int id, String artistName,
-      List<Album> albums, List<Genre> genres,
-      List<ArtistAchievement> achievements) {
+      List<Album> albums) {
     this.id = id;
     this.artistName = artistName;
     this.albums = albums;
-    this.genres = genres;
-    this.achievements = achievements;
   }
 
   public int getId() {
@@ -50,41 +57,6 @@ public class Artists {
     this.albums = albums;
   }
 
-  public List<Genre> getGenres() {
-    return genres;
-  }
-
-  public void setGenres(List<Genre> genres) {
-    this.genres = genres;
-  }
-
-  public List<ArtistAchievement> getAchievements() {
-    return achievements;
-  }
-
-  public void setAchievements(
-      List<ArtistAchievement> achievements) {
-    this.achievements = achievements;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof Artists)) {
-      return false;
-    }
-    Artists artists = (Artists) o;
-    return getId() == artists.getId() && getArtistName().equals(artists.getArtistName())
-        && getAlbums().equals(artists.getAlbums()) && getGenres().equals(artists.getGenres())
-        && getAchievements().equals(artists.getAchievements());
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(getId(), getArtistName(), getAlbums(), getGenres(), getAchievements());
-  }
 
   @Override
   public String toString() {
@@ -92,8 +64,6 @@ public class Artists {
         "id=" + id +
         ", artistName='" + artistName + '\'' +
         ", albums=" + albums +
-        ", genres=" + genres +
-        ", achievements=" + achievements +
         '}';
   }
 }

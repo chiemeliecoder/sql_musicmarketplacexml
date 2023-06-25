@@ -1,22 +1,31 @@
 package com.laba.solvd.databases.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 
+
+@XmlRootElement(name = "Album")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Album {
 
+  @XmlElement
   private int id;
 
+  @XmlElement
   private String albumName;
 
+  @XmlElement
+  @XmlSchemaType(name = "date")
+  @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
   private Date albumDate;
-
-  private List<Track> tracks;
-
-  private List<Review> reviews;
-
 
 
   //constructor
@@ -25,13 +34,10 @@ public class Album {
   public Album() {
   }
 
-  public Album(int id, String albumName, Date albumDate,
-      List<Track> tracks, List<Review> reviews) {
+  public Album(int id, String albumName, Date albumDate){
     this.id = id;
     this.albumName = albumName;
     this.albumDate = albumDate;
-    this.tracks = tracks;
-    this.reviews = reviews;
   }
 
   public int getId() {
@@ -58,44 +64,6 @@ public class Album {
     this.albumDate = albumDate;
   }
 
-  public List<Track> getTracks() {
-    return tracks;
-  }
-
-  public void setTracks(List<Track> tracks) {
-    this.tracks = tracks;
-  }
-
-  public List<Review> getReviews() {
-    return reviews;
-  }
-
-  public void setReviews(List<Review> reviews) {
-    this.reviews = reviews;
-  }
-
-//equals and hashcode
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof Album)) {
-      return false;
-    }
-    Album album = (Album) o;
-    return getId() == album.getId() && getAlbumName().equals(album.getAlbumName()) && getAlbumDate()
-        .equals(album.getAlbumDate()) && getTracks().equals(album.getTracks()) && reviews
-        .equals(album.reviews);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(getId(), getAlbumName(), getAlbumDate(), getTracks(), reviews);
-  }
-
 
   @Override
   public String toString() {
@@ -103,8 +71,6 @@ public class Album {
         "id=" + id +
         ", albumName='" + albumName + '\'' +
         ", albumDate=" + albumDate +
-        ", tracks=" + tracks +
-        ", reviews=" + reviews +
         '}';
   }
 }

@@ -2,23 +2,30 @@ package com.laba.solvd.databases.model;
 
 import java.util.List;
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+
+@XmlRootElement(name = "Playlist")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Playlist {
 
+  @XmlElement
   private int id;
 
+  @XmlElement
   private String playlistName;
 
-  private List<Track> tracks;
+
 
   public Playlist() {
   }
 
-  public Playlist(int id, String playlistName,
-      List<Track> tracks) {
+  public Playlist(int id, String playlistName) {
     this.id = id;
     this.playlistName = playlistName;
-    this.tracks = tracks;
   }
 
   public int getId() {
@@ -38,38 +45,11 @@ public class Playlist {
   }
 
 
-  public List<Track> getTracks() {
-    return tracks;
-  }
-
-  public void setTracks(List<Track> tracks) {
-    this.tracks = tracks;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof Playlist)) {
-      return false;
-    }
-    Playlist playlist = (Playlist) o;
-    return getId() == playlist.getId() && getPlaylistName().equals(playlist.getPlaylistName())
-        && getTracks().equals(playlist.getTracks());
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(getId(), getPlaylistName(), getTracks());
-  }
-
   @Override
   public String toString() {
     return "Playlist{" +
         "id=" + id +
         ", playlistName='" + playlistName + '\'' +
-        ", tracks=" + tracks +
         '}';
   }
 }
