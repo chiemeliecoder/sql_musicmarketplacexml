@@ -64,14 +64,8 @@ public class musicParser implements IParser{
             String endElementName = xmlStreamReader.getLocalName();
             // Handle end element event based on the element name
             if (endElementName.equals("User")) {
-              // Finish processing the user element
-              // Perform any necessary actions or validations
             } else if (endElementName.equals("Playlist")) {
-              // Finish processing the playlist element
-              // Perform any necessary actions or validations
             } else if (endElementName.equals("Wishlist")) {
-              // Finish processing the wishlist element
-              // Perform any necessary actions or validations
             }
             break;
           case XMLStreamConstants.CHARACTERS:
